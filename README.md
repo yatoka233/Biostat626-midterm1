@@ -1,4 +1,4 @@
-# Bios626-midterm1
+# Biostat626-midterm1
 
 # Usage
 
