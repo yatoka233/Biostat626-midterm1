@@ -9,12 +9,73 @@ To install requirements:
 ```
 pip install -r requirements.txt
 ```
-To run baseline bagging model and final stacking model (need to modify the parameters): 
+To run baseline bagging model and final stacking model, you need to set parameter ```task``` first, and specify the feature augmentation parameters ```binary``` and ```offset```. It will do the cross-validation automatically to evaluate all the base models in the stacking model and predict the test data, it will also compare the predictions of the baseline model (random forest + bagging) with the current model.
 ```
 cd Midterm1
 python forest.py --sid name
 ```
-To apply the deep neural networks (need to modify the parameters):
+To apply the deep neural networks, you need to specify the model first: 
+```
+## to use the CNN1D model
+model = Net1D(
+    in_channels=1, 
+    base_filters=256, 
+    ratio=1.0, 
+    filter_list=[64,160,160,400,400,1024,1024], 
+    m_blocks_list=[2,2,2,3,3,4,4], 
+    kernel_size=16, 
+    stride=2, 
+    groups_width=1,
+    verbose=False, 
+    n_classes=3)
+
+## to use Resnet34
+model = ResNet1D(
+    in_channels=1, 
+    base_filters=128, 
+    kernel_size=16, 
+    stride=2, 
+    n_block=16, 
+    groups=4,
+    n_classes=3, 
+    downsample_gap=2, 
+    increasefilter_gap=4, 
+    verbose=False)
+
+## to use Resnet98
+model = ResNet1D(
+    in_channels=1, 
+    base_filters=128, 
+    kernel_size=16, 
+    stride=2, 
+    n_block=48, 
+    groups=4,
+    n_classes=3, 
+    downsample_gap=6, 
+    increasefilter_gap=12, 
+    verbose=False)
+
+```
+then you need to specify the loss function:
+```
+## cross entropy
+loss_func = nn.CrossEntropyLoss()
+
+## focal loss
+focal_loss = torch.hub.load(
+    'adeelh/pytorch-multi-class-focal-loss',
+    model='focal_loss',
+    alpha=[0.2, 1.0, 1.2], # [.2, 1.0, 1.2]
+    gamma=2,
+    reduction='mean',
+    device='cuda',
+    dtype=torch.float32,
+    force_reload=False
+)
+loss_func = focal_loss
+```
+Similarly, ```binary``` and ```offset``` need to be specified to determine the features used for training. Training and predicting code can be conducted by the following command.
+
 ```
 cd resnet1d-master
 python train.py --sid name
@@ -24,6 +85,8 @@ python predict.py --sid name
 Post-processing can be applied in ```post_process.ipynb```
 
 However, so far, the final manual modification can only be done by hand.
+
+The formal report can be found [here](https://github.com/yatoka233/Bios626-midterm1/blob/main/report.pdf)
 
 # 1. Introduction
 ## 1.1 Data description
