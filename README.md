@@ -14,6 +14,40 @@ To run baseline bagging model and final stacking model, you need to set paramete
 cd Midterm1
 python forest.py --sid name
 ```
+
+The default model is
+```
+meta_model = LogisticRegression(random_state=seed, solver='lbfgs')
+base_models = [
+    ('random_forest',RandomForestClassifier(criterion='entropy', n_estimators=200, n_jobs=-1,
+                    random_state=seed)),
+            ('GaussianNB', GaussianNB()),
+            ('knn1', KNeighborsClassifier(n_neighbors=5)),
+            ('knn2', KNeighborsClassifier(n_neighbors=10)),
+            ('knn3', KNeighborsClassifier(n_neighbors=20)),
+            ('knn4', KNeighborsClassifier(n_neighbors=30)),
+            ('LDA', LinearDiscriminantAnalysis()),
+        #    ('QDA', QuadraticDiscriminantAnalysis()),
+            ('gradient_boosting', GradientBoostingClassifier(n_estimators=50, random_state=seed)),
+            ('adaboost', AdaBoostClassifier(n_estimators=50, random_state=seed)),
+            ('svm_rbf', SVC(C=1, kernel='rbf', gamma='auto')),
+            ('svm_linear', SVC(C=1, kernel='linear', gamma='auto')),
+            ('svm_poly', SVC(C=1, kernel='poly', gamma='auto')),
+            ## different small trees: max_depth, min_samples_split, min_samples_leaf, max_leaf_nodes, max_features
+            ('decision_tree1', DecisionTreeClassifier(criterion='entropy', max_depth=5, max_leaf_nodes=5, min_samples_leaf=10, min_samples_split=10, random_state=1)),
+            ('decision_tree2', DecisionTreeClassifier(criterion='entropy', max_depth=5, max_leaf_nodes=10, min_samples_leaf=20, min_samples_split=20, random_state=2)),
+            ('decision_tree3', DecisionTreeClassifier(criterion='entropy', max_depth=10, max_leaf_nodes=5, min_samples_leaf=10, min_samples_split=10, random_state=3)),
+            ('decision_tree4', DecisionTreeClassifier(criterion='entropy', max_depth=10, max_leaf_nodes=10, min_samples_leaf=20, min_samples_split=20, random_state=4)),
+            # MLP
+            # ('mlp1', MLPClassifier(hidden_layer_sizes=(2048, 4096, 2048), learning_rate='adaptive', warm_start=True, random_state=seed)),
+            ('mlp2', MLPClassifier(hidden_layer_sizes=(1024, 2048, 1024), learning_rate='adaptive', warm_start=True, random_state=seed)),
+            # ('mlp3', MLPClassifier(hidden_layer_sizes=(512, 1024, 512), learning_rate='adaptive', warm_start=True, random_state=seed)),
+            # ('mlp4', MLPClassifier(hidden_layer_sizes=(256, 512, 256), learning_rate='adaptive', warm_start=True, random_state=seed)),
+        ]
+## stacking
+gs1 = StackingClassifier(estimators=base_models, final_estimator=meta_model, cv=10, passthrough=True)
+```
+
 To apply the deep neural networks, you need to specify the model first: 
 ```
 ## to use the CNN1D model
