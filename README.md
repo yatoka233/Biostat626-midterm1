@@ -48,7 +48,7 @@ base_models = [
 gs1 = StackingClassifier(estimators=base_models, final_estimator=meta_model, cv=10, passthrough=True)
 ```
 
-To apply the deep neural networks, you need to specify the model first: 
+To apply the deep neural networks, you need to specify the model first, and the model structures are described [here](https://github.com/yatoka233/Biostat626-midterm1/tree/main/resnet1d-master/model_detail)
 ```
 ## to use the CNN1D model
 model = Net1D(
