@@ -1,0 +1,1290 @@
+RandomForestClassifier(max_samples=5000, n_estimators=200)
+accuracy: 0.9691011888176837
+Total accuracy: 0.967683790395262
+
+RandomForestClassifier(max_samples=6500, n_estimators=200)
+accuracy: 0.9705180511881544
+Total accuracy: 0.9694862881421398
+
+RandomForestClassifier(max_samples=6500, n_estimators=250)
+accuracy: 0.9703885218060476
+Total accuracy: 0.9687137891077636
+
+RandomForestClassifier(n_estimators=150)
+accuracy: 0.9710325200015921
+Total accuracy: 0.9694862881421398
+
+RandomForestClassifier(criterion='entropy', n_estimators=150)
+accuracy: 0.9733499515716009
+Total accuracy: 0.9720612849233938
+
+RandomForestClassifier(criterion='entropy', n_estimators=200, n_jobs=-1,
+                       random_state=42)
+accuracy: 0.9824906460215738
+Total accuracy: 0.9818462726921592
+
+RandomForestClassifier(criterion='entropy', n_estimators=200, n_jobs=-1,
+                       random_state=42)
+accuracy: 0.9824906460215738
+Total accuracy: 0.9818462726921592
+
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression())
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9875111949209888
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression())
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9875111949209888
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression(), passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9913091755230932
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='saga'),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9913090096724119
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='sag'),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9913091755230932
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier())],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='newton-cg'),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+stacking: 0.9912448254587432
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier()),
+                               ('LDA', LinearDiscriminantAnalysis()),
+                               ('svm_rbf', SVC(C=1, gamma='auto')),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear')),
+                               ('svm_poly',
+                                SVC(C=1, gamma='auto', kernel='poly'))],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='sag'),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+LDA: 0.9804295366795366
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+stacking: 0.9914380415024745
+
+
+StackingClassifier(cv=10,
+                   estimators=[('svm_rbf', SVC(C=1, gamma='auto')),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear'))],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='sag'),
+                   passthrough=True)
+svm_rbf: 0.998905800130027
+svm_linear: 1.0
+stacking: 0.99993564993565
+
+StackingClassifier(cv=10,
+                   estimators=[('knn', KNeighborsClassifier()),
+                               ('LDA', LinearDiscriminantAnalysis()),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear')),
+                               ('svm_poly',
+                                SVC(C=1, gamma='auto', kernel='poly'))],
+                   final_estimator=GaussianNB(), passthrough=True)
+knn: 0.9978757844737226
+LDA: 0.9998069498069497
+svm_linear: 1.0
+svm_poly: 0.9981332676564636
+stacking: 1.0
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn', KNeighborsClassifier()),
+                               ('LDA', LinearDiscriminantAnalysis()),
+                               ('gradient_boosting',
+                                GradientBoostingClassifier(n_estimators=50,
+                                                           random_state=42)),
+                               ('adaboost',
+                                AdaBoostClassifier(random_state=42)),
+                               ('svm_rbf', SVC(C=1, gamma='auto')),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear')),
+                               ('svm_poly',
+                                SVC(C=1, gamma='auto', kernel='poly')),
+                               ('tree',
+                                DecisionTreeClassifier(max_depth=5,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42,
+                                                      solver='sag'),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn: 0.9651095775451444
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+tree: 0.8904324058963233
+stacking: 0.9918240589632342
+
+
+### Binary best model
+StackingClassifier(cv=10,
+                   estimators=[('knn', KNeighborsClassifier()),
+                               ('LDA', LinearDiscriminantAnalysis()),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear')),
+                               ('svm_poly',
+                                SVC(C=1, gamma='auto', kernel='poly'))],
+                   final_estimator=GaussianNB(), passthrough=True)
+knn: 0.9978757844737226
+LDA: 0.9998069498069497
+svm_linear: 1.0
+svm_poly: 0.9981332676564636
+stacking: 1.0
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                                       random_state=42)),
+                               ('decision_tree3',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=GaussianNB(), passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.8889524373416127
+decision_tree2: 0.8889524373416127
+decision_tree3: 0.8889524373416127
+decision_tree4: 0.8889524373416127
+stacking: 0.9734131406811819
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                                       random_state=42)),
+                               ('decision_tree3',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=GaussianNB(), passthrough=True)
+random_forest: 0.9804298683808993
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.8889524373416127
+decision_tree2: 0.8889524373416127
+decision_tree3: 0.8889524373416127
+decision_tree4: 0.8889524373416127
+stacking: 0.9735418408098819
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                                       random_state=42)),
+                               ('decision_tree3',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=GaussianNB(), passthrough=True)
+random_forest: 0.981781800209635
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.8856049071899588
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.8856049071899588
+decision_tree4: 0.8856049071899588
+stacking: 0.9741214060157357
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.981781800209635
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.8856049071899588
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.8856049071899588
+decision_tree4: 0.8856049071899588
+stacking: 0.992210573976038
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.8889524373416127
+decision_tree2: 0.8889524373416127
+decision_tree3: 0.8889524373416127
+decision_tree4: 0.8889524373416127
+stacking: 0.9919529249426157
+
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=5,
+                                                       random_state=42)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9833268651567619
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.8856049071899588
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.8856049071899588
+decision_tree4: 0.8856049071899588
+stacking: 0.992274924040388
+
+626
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.981781800209635
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8857336073186588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8854761241359179
+stacking: 0.9920817909219972
+
+mid
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.7501636946224576
+decision_tree2: 0.8890812203956534
+decision_tree3: 0.7500992616327669
+decision_tree4: 0.8890812203956534
+stacking: 0.992017440857647
+
+mid1
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9833268651567619
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8857336073186588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8854761241359179
+stacking: 0.9917600406002467
+
+task2
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=15,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9804298683808993
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+QDA: 0.822065023418116
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.7501636946224576
+decision_tree2: 0.7500992616327669
+decision_tree3: 0.8889524373416127
+decision_tree4: 0.8889524373416127
+stacking: 0.992081873847338
+
+task4
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=15,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9833268651567619
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+QDA: 0.8329463207684858
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.753314608791413
+decision_tree2: 0.753314608791413
+decision_tree3: 0.8854761241359179
+decision_tree4: 0.8856049071899588
+stacking: 0.9922746752643663
+
+task3
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=15,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9814603815892475
+GaussianNB: 0.7256968216375432
+knn1: 0.9651095775451444
+knn2: 0.9590585983627221
+knn3: 0.9529422740118617
+knn4: 0.9474065928962837
+LDA: 0.9804295366795366
+QDA: 0.822065023418116
+gradient_boosting: 0.9823607849381044
+adaboost: 0.415143825710836
+svm_rbf: 0.9466985763377517
+svm_linear: 0.9865447830009686
+svm_poly: 0.9159270555533441
+decision_tree1: 0.7501636946224576
+decision_tree2: 0.7500992616327669
+decision_tree3: 0.8889524373416127
+decision_tree4: 0.8889524373416127
+stacking: 0.9921461409863473
+
+offset
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8856049071899588
+stacking: 0.9942704394379651
+
+626
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                               ('svm_rbf', SVC(C=1, gamma='auto')),
+                               ('svm_linear',
+                                SVC(C=1, gamma='auto', kernel='linear')),
+                               ('svm_poly',
+                                SVC(C=1, gamma='auto', kernel='poly')),
+                               ('decision_tree1',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=5,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=5,
+                                                       min_samples_split=10,
+                                                       random_state=1))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.981781800209635
+GaussianNB: 0.7345801987554565
+knn1: 0.9653670607278853
+knn2: 0.9593160815454629
+knn3: 0.9533930561636748
+knn4: 0.947921642187106
+LDA: 0.9804295366795366
+gradient_boosting: 0.9823604532367417
+adaboost: 0.42608333665034703
+svm_rbf: 0.947277975692924
+svm_linear: 0.9865447830009686
+svm_poly: 0.9158627884143348
+decision_tree1: 0.753314608791413
+stacking: 0.9921462239116877
+
+offset
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=15,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.753378958855763
+decision_tree3: 0.8857336902439995
+decision_tree4: 0.8857336073186588
+stacking: 0.9940774721702557
+
+offset1
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=15,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=20,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=42))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9810091018853905
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.753378958855763
+decision_tree3: 0.8857336902439995
+decision_tree4: 0.8857336073186588
+stacking: 0.9941416563839243
+
+offset2
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=5,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=20,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=10,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.753314608791413
+decision_tree3: 0.8857336902439995
+decision_tree4: 0.9166990904748639
+stacking: 0.9940774721702559
+
+offset3
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=5,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=20,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=10,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9810091018853905
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.753314608791413
+decision_tree3: 0.8857336902439995
+decision_tree4: 0.9166990904748639
+stacking: 0.9941418222346057
+
+offset3
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=50,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Line...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9810091018853905
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8856049071899588
+stacking: 0.9940129562552242
+
+offset2
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=5,
+                                                       min_samples_leaf=10,
+                                                       min_samples_split=10,
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8856049071899588
+stacking: 0.9942704394379651
+
+mlp1
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4)),
+                               ('mlp1',
+                                MLPClassifier(hidden_layer_sizes=(1024, 2048,
+                                                                  1024),
+                                              learning_rate='adaptive',
+                                              random_state=42,
+                                              warm_start=True))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8856049071899588
+mlp1: 0.9788216143241918
+stacking: 0.994463572556356
+
+mlp4
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=42)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Lin...
+                                              learning_rate='adaptive',
+                                              random_state=42,
+                                              warm_start=True)),
+                               ('mlp3',
+                                MLPClassifier(hidden_layer_sizes=(512, 1024,
+                                                                  512),
+                                              learning_rate='adaptive',
+                                              random_state=42,
+                                              warm_start=True)),
+                               ('mlp4',
+                                MLPClassifier(hidden_layer_sizes=(256, 512,
+                                                                  256),
+                                              learning_rate='adaptive',
+                                              random_state=42,
+                                              warm_start=True))],
+                   final_estimator=LogisticRegression(random_state=42),
+                   passthrough=True)
+random_forest: 0.9824896509174861
+GaussianNB: 0.7752642001353343
+knn1: 0.9677491740636072
+knn2: 0.9595728184001379
+knn3: 0.9521056402499702
+knn4: 0.9456025521102841
+LDA: 0.9834561457628468
+gradient_boosting: 0.981653348856957
+adaboost: 0.4143071919489446
+svm_rbf: 0.9503677738858153
+svm_linear: 0.9860946642518806
+svm_poly: 0.9127719121920153
+decision_tree1: 0.753314608791413
+decision_tree2: 0.8856049071899588
+decision_tree3: 0.753314608791413
+decision_tree4: 0.8856049071899588
+mlp1: 0.9775304667701572
+mlp2: 0.9788216143241918
+mlp3: 0.9779824928020805
+mlp4: 0.9684607564117874
+stacking: 0.994141739309265
+
+seed1002
+StackingClassifier(cv=10,
+                   estimators=[('random_forest',
+                                RandomForestClassifier(criterion='entropy',
+                                                       n_estimators=200,
+                                                       n_jobs=-1,
+                                                       random_state=100)),
+                               ('GaussianNB', GaussianNB()),
+                               ('knn1', KNeighborsClassifier()),
+                               ('knn2', KNeighborsClassifier(n_neighbors=10)),
+                               ('knn3', KNeighborsClassifier(n_neighbors=20)),
+                               ('knn4', KNeighborsClassifier(n_neighbors=30)),
+                               ('LDA', Li...
+                                                       random_state=3)),
+                               ('decision_tree4',
+                                DecisionTreeClassifier(criterion='entropy',
+                                                       max_depth=10,
+                                                       max_leaf_nodes=10,
+                                                       min_samples_leaf=20,
+                                                       min_samples_split=20,
+                                                       random_state=4)),
+                               ('mlp2',
+                                MLPClassifier(hidden_layer_sizes=(1024, 2048,
+                                                                  1024),
+                                              learning_rate='adaptive',
+                                              random_state=100,
+                                              warm_start=True))],
+                   final_estimator=LogisticRegression(random_state=100),
+                   passthrough=True)
+random_forest: 0.9817807221802065
+GaussianNB: 0.7296214292348313
+knn1: 0.9671037661372711
+knn2: 0.9586701760670833
+knn3: 0.9481122875452771
+knn4: 0.9426398784646208
+LDA: 0.9870604127691756
+gradient_boosting: 0.9821026383526383
+adaboost: 0.4032413857156126
+svm_rbf: 0.9516514581591901
+svm_linear: 0.9869958968541441
+svm_poly: 0.9164382902784964
+decision_tree1: 0.7530579548620786
+decision_tree2: 0.8877288739402142
+decision_tree3: 0.7530579548620786
+decision_tree4: 0.8877288739402142
+mlp2: 0.9808154712149559
+stacking: 0.9948500046438191
+
