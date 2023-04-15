@@ -111,7 +111,9 @@ Ensemble methods such as Bagging and Stacking were also attempted to improve the
 
 Data augmentation techniques were also applied to improve the model's performance, including using binary classifier results, lagged features, Synthetic Minority Over-sampling Technique (SMOTE), and Adaptive Synthetic Sampling (ADASYN).
 
-Finally, two types of loss functions were used to optimize the deep learning models: cross-entropy loss and multi-class focal loss. These methods were experimented with in both Task 1 and Task 2, and the best-performing method was selected based on the evaluation metrics.
+For post-processing, two types of loss functions were used to optimize the deep learning models: cross-entropy loss and multi-class focal loss. These methods were experimented with in both Task 1 and Task 2, and the best-performing method was selected based on the evaluation metrics.
+
+Finally, based on the distribution characteristics of the predicted activities, obvious misclassifications were found and modified manually.
 
 
 
@@ -137,7 +139,7 @@ However, the confusion matrix Table 1 showed that most of the misclassifications
 
 Based on the original predictions from the stacking model, if a sample was predicted as class 5, it was reclassified as class 4 if the neural network predicted the sample as class 4 with high probability, and if there was only a small number of such disagreements. This post-processing step helped to improve the accuracy of the model and alleviate the misclassification issue between activities 4 and 5.
 
-Finally, by observing the distribution characteristics of the predicted behaviors in the test set, it was found that behaviors 1-6 always showed a tendency to appear together, while behavior 7 appeared only at the joining point of the interval where behavior 1-6 changed (precisely 4-6). To exploit this distribution, all the predictions in the test set were manually examined and obvious errors were fixed, resulting in a significant improvement of 0.007 on the test set.
+Finally, by observing the distribution characteristics of the predicted activities in the test set, it was found that activities 1-6 always showed a tendency to appear together, while activity 7 appeared only at the joining point of the interval where activity 1-6 changed (precisely 4-6). To exploit this distribution, all the predictions in the test set were manually examined and obvious errors were fixed, resulting in a significant improvement of 0.007 on the test set.
 
 # 4. Building process
 This section presents a detailed analysis of the problem and the model building process, along with the challenges faced during training and the techniques employed to overcome them. The results obtained are summarized in Table 2.
