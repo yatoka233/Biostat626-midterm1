@@ -82,7 +82,7 @@ python train.py --sid name
 python predict.py --sid name
 ```
 
-![image](https://github.com/yatoka233/Biostat626-midterm1/blob/loss.png)
+![image](https://github.com/yatoka233/Biostat626-midterm1/blob/main/loss.png)
 
 Post-processing can be applied in ```post_process.ipynb```
 
